@@ -6,4 +6,11 @@
 	"compatibility_date": "2026-11-01",
 	"compatibility_flags": ["nodejs_compat"],
 	"workers_dev": false,
+	// The built front end. Only /api/* runs the Worker first; any other unknown path gets index.html (the app
+	// routes itself). Security headers for these files: apps/web/public/_headers.
+	"assets": {
+		"directory": "../web/dist",
+		"not_found_handling": "single-page-application",
+		"run_worker_first": ["/api/*"],
+	},
 }

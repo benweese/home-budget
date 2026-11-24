@@ -20,15 +20,21 @@
 		"format:check": "prettier --check .",
 		"typecheck": "npm run typecheck --workspaces --if-present",
 		"docs:build": "npm run build -w @home-budget/docs",
-		"docs:a11y": "npm run a11y -w @home-budget/docs"
+		"docs:a11y": "npm run a11y -w @home-budget/docs",
+		"app:build": "npm run build -w @home-budget/web",
+		"app:a11y": "node scripts/app-a11y.mjs",
+		"dev:web": "npm run dev -w @home-budget/web",
+		"dev:worker": "npm run dev -w @home-budget/worker"
 	},
 	"devDependencies": {
+		"@axe-core/playwright": "4.14.0",
 		"@eslint/js": "10.0.1",
 		"@types/node": "24.19.2",
 		"@vitest/coverage-istanbul": "5.1.1",
 		"eslint": "10.15.0",
 		"eslint-config-prettier": "10.1.8",
 		"globals": "17.14.0",
+		"playwright": "1.65.1",
 		"prettier": "3.10.1",
 		"typescript": "6.0.3",
 		"typescript-eslint": "8.73.0",

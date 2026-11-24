@@ -10,5 +10,8 @@
 	"devDependencies": {
 		"@cloudflare/vitest-plugin": "1.9.0",
 		"wrangler": "4.166.0"
+	},
+	"dependencies": {
+		"hono": "4.13.21"
 	}
 }
