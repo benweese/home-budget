@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      cloudflare:
+        patterns: ["wrangler", "@cloudflare/*"]
+      dev-tools:
+        update-types: [minor, patch]
+    ignore:
+      # Remove when typescript-eslint supports TypeScript 7 (its peer range is "<6.1.0" as of 2026-11-23).
+      - dependency-name: typescript
+        versions: [">=7"]
+  # Actions pinned to commit SHAs in .github/workflows (the "# vX.Y.Z" comments are updated too).
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  # Container images the workflows run with `docker run`, pinned by tag + digest in .github/docker/<tool>/Dockerfile.
+  - package-ecosystem: docker
+    directories:
+      - /.github/docker/*
+    schedule:
+      interval: weekly
