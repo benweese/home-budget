@@ -45,7 +45,7 @@ jobs:
             Review this pull request to a family cash-flow app on Cloudflare Workers + D1 (TypeScript monorepo, public repo).
             Read CLAUDE.md and README.md first. The PR branch is checked out. Check, in this order:
             1. Privacy: no real personal data (names, amounts, emails, phone, card or account numbers, addresses,
-               credentials, production domains) in code, tests, fixtures, docs, commit messages or the PR text, and no
+               credentials, the app's production domain; the public docs site at code.benweese.com/home-budget/ is fine) in code, tests, fixtures, docs, commit messages or the PR text, and no
                references to private trackers or issue numbers from elsewhere. Made-up data and example.com are fine.
             2. Money: amounts are integer cents, never floats.
             3. TypeScript: strict; no `as` casts or `any` to silence types (relax a compiler flag only with an ADR note).

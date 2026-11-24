@@ -168,3 +168,7 @@ vite.config.ts.timestamp-*
 
 # Claude Code: local-only board config (never committed)
 .claude/board.json
+
+# VitePress build output and cache
+docs/.vitepress/dist/
+docs/.vitepress/cache/

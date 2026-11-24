@@ -1,0 +1,18 @@
+{
+	"name": "@home-budget/docs",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "vitepress dev",
+		"build": "vitepress build",
+		"preview": "vitepress preview",
+		"a11y": "node scripts/axe.mjs",
+		"typecheck": "tsc --noEmit -p ."
+	},
+	"devDependencies": {
+		"@axe-core/playwright": "4.14.0",
+		"playwright": "1.65.1",
+		"vitepress": "1.6.4",
+		"vue": "3.5.46"
+	}
+}
