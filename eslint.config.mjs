@@ -27,5 +27,7 @@ export default tseslint.config(
 		extends: [tseslint.configs.disableTypeChecked],
 		languageOptions: { globals: globals.node },
 	},
+	// The docs axe script also runs code in the browser through page.evaluate().
+	{ files: ["docs/scripts/**/*.mjs"], languageOptions: { globals: { ...globals.node, ...globals.browser } } },
 	prettier,
 );

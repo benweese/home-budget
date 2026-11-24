@@ -85,8 +85,41 @@
 	text-underline-offset: 0.15em;
 }
 
-/* Label in Name (WCAG 2.5.3): the search button's accessible name is "Search", so its visible text must be
-   too. The keyboard shortcut still works; only its hint is hidden. */
-.DocSearch-Button-Keys {
-	display: none !important;
+/* 44×44px targets (project rule; WCAG 2.5.8 only asks 24px). Links inside running text are exempt. */
+.VPSidebarItem .item,
+.VPSidebarItem .link {
+	min-height: 44px;
+	display: flex;
+	align-items: center;
+}
+.VPSidebarItem .text {
+	padding-block: 10px;
+}
+.VPDocOutlineItem .outline-link {
+	display: flex;
+	align-items: center;
+	min-height: 44px;
+	line-height: 1.4;
+}
+.VPDocAsideOutline .outline-marker {
+	display: none;
+}
+.VPSocialLink,
+.VPNavBarHamburger,
+.VPLocalNavOutlineDropdown button,
+.VPLocalNavOutlineDropdown .top-link {
+	min-width: 44px;
+	min-height: 44px;
+}
+.VPLocalNav .menu {
+	min-height: 44px;
+}
+.VPDocFooter .edit-link-button,
+.VPDocFooterLastUpdated {
+	min-height: 44px;
+	display: inline-flex;
+	align-items: center;
+}
+.pager-link {
+	min-height: 44px;
 }

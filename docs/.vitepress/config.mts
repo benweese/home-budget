@@ -46,7 +46,8 @@ export default defineConfig({
 				],
 			},
 		],
-		search: { provider: "local" },
+		// No search for now: VitePress's local search dialog fails axe (nested interactive controls, label/name
+		// mismatch), and the sidebar covers a site this size. Revisit with VitePress 2.
 		socialLinks: [
 			{ icon: "github", link: "https://github.com/benweese/home-budget", ariaLabel: "home-budget on GitHub" },
 		],
