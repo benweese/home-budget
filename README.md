@@ -23,6 +23,9 @@ npm run typecheck      # tsc --noEmit in every workspace
 npm run format:check   # Prettier
 ```
 
+Run the app locally (two terminals): `npm run dev:web` (rebuilds the front end on save) and `npm run dev:worker`
+(serves it with the API at http://localhost:8787). Checks: `npm run app:build && npm run app:a11y`.
+
 Workspaces: `packages/ui-tokens`, `apps/worker`, `apps/web`, `docs` (the VitePress docs site: `npm run docs:build`,
 then `npm run docs:a11y` for the axe check; `npm run dev -w @home-budget/docs` to preview). After changing `apps/worker/wrangler.jsonc`, run `npm run cf-typegen -w @home-budget/worker`.
 

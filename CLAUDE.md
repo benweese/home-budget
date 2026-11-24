@@ -27,4 +27,5 @@ Public repo: a family cash-flow app on Cloudflare Workers + D1 (TypeScript monor
 
 ## Layout
 
-- `packages/ui-tokens` — design tokens · `apps/worker` — the Worker (see its CLAUDE.md) · `apps/web` — front end.
+- `packages/ui-tokens` — tokens + base styles · `apps/worker` — Worker + API · `apps/web` — Preact front end ·
+  `docs` — docs site · `scripts/` — shared accessibility + CSP checks. Each has its own CLAUDE.md where useful.

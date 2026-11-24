@@ -16,3 +16,4 @@ one: [ADR 0001](./0001-record-architecture-decisions).
 | [0008](./0008-squash-conventional-commits-release-please) | Squash merge, Conventional Commit titles, release-please            | Accepted |
 | [0009](./0009-actions-supply-chain)                       | Actions allow list, SHA pins, image-pinned tools                    | Accepted |
 | [0010](./0010-typography-and-reader-settings)             | Atkinson Hyperlegible Next, Dynamic Type root font, reader settings | Accepted |
+| [0011](./0011-serving-and-security-headers)               | Workers Static Assets, strict CSP proven in CI                      | Accepted |
