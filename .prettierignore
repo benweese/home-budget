@@ -1,0 +1,4 @@
+coverage/
+**/.wrangler/
+**/worker-configuration.d.ts
+package-lock.json
