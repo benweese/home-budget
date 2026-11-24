@@ -47,6 +47,8 @@ jobs:
             1. Privacy: no real personal data (names, amounts, emails, phone, card or account numbers, addresses,
                credentials, the app's production domain; the public docs site at code.benweese.com/home-budget/ is fine) in code, tests, fixtures, docs, commit messages or the PR text, and no
                references to private trackers or issue numbers from elsewhere. Made-up data and example.com are fine.
+               The app's name "Budget Ben" is an allowed exception (the owner's first name, chosen as the brand,
+               see CLAUDE.md); don't flag it. Flag any other real name.
             2. Money: amounts are integer cents, never floats.
             3. TypeScript: strict; no `as` casts or `any` to silence types (relax a compiler flag only with an ADR note).
             4. Accessibility: WCAG 2.2 AA and docs/accessibility.md (native controls, visible labels, no animation,
