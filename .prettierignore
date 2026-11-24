@@ -4,3 +4,4 @@ coverage/
 package-lock.json
 docs/.vitepress/dist/
 docs/.vitepress/cache/
+packages/ui-tokens/tokens.css

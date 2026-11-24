@@ -1,46 +1,36 @@
-/* Brand tokens (dark only): base #16181d, text #efece6, muted #9aa3ad, brand periwinkle #8b9cf4,
-   status good #7fbf8e / tight #e0b25a / bad #e07a6f. Periwinkle buttons carry charcoal text. */
+/* Colours, focus and target size come from @home-budget/ui-tokens (imported in index.ts), mapped onto
+   VitePress's variables. Increase Contrast is handled by the tokens' own prefers-contrast overrides. */
 :root,
 .dark {
-	--hb-bg: #16181d;
-	--hb-bg-raised: #1e2128;
-	--hb-bg-sunken: #121419;
-	--hb-text: #efece6;
-	--hb-muted: #9aa3ad;
-	--hb-brand: #8b9cf4;
-	--hb-good: #7fbf8e;
-	--hb-tight: #e0b25a;
-	--hb-bad: #e07a6f;
+	--vp-c-bg: var(--hb-color-bg);
+	--vp-c-bg-alt: var(--hb-color-bg);
+	--vp-c-bg-elv: var(--hb-color-surface-raised);
+	--vp-c-bg-soft: var(--hb-color-surface-raised);
+	--vp-c-text-1: var(--hb-color-text);
+	--vp-c-text-2: var(--hb-color-text-muted);
+	--vp-c-text-3: var(--hb-color-text-muted);
+	--vp-c-divider: var(--hb-color-divider);
+	--vp-c-border: var(--hb-color-border);
+	--vp-c-gutter: var(--hb-color-divider);
 
-	--vp-c-bg: var(--hb-bg);
-	--vp-c-bg-alt: var(--hb-bg-sunken);
-	--vp-c-bg-elv: var(--hb-bg-raised);
-	--vp-c-bg-soft: var(--hb-bg-raised);
-	--vp-c-text-1: var(--hb-text);
-	--vp-c-text-2: var(--hb-muted);
-	--vp-c-text-3: var(--hb-muted);
-	--vp-c-divider: #2c3039;
-	--vp-c-border: #3a3f4a;
-	--vp-c-gutter: #2c3039;
+	--vp-c-brand-1: var(--hb-color-brand);
+	--vp-c-brand-2: var(--hb-color-brand);
+	--vp-c-brand-3: var(--hb-color-brand);
+	--vp-c-brand-soft: color-mix(in srgb, var(--hb-color-brand) 16%, transparent);
 
-	--vp-c-brand-1: var(--hb-brand);
-	--vp-c-brand-2: #a3b0f7;
-	--vp-c-brand-3: var(--hb-brand);
-	--vp-c-brand-soft: rgba(139, 156, 244, 0.16);
+	--vp-c-tip-1: var(--hb-color-good);
+	--vp-c-tip-soft: color-mix(in srgb, var(--hb-color-good) 14%, transparent);
+	--vp-c-warning-1: var(--hb-color-tight);
+	--vp-c-warning-soft: color-mix(in srgb, var(--hb-color-tight) 14%, transparent);
+	--vp-c-danger-1: var(--hb-color-bad);
+	--vp-c-danger-soft: color-mix(in srgb, var(--hb-color-bad) 14%, transparent);
 
-	--vp-c-tip-1: var(--hb-good);
-	--vp-c-tip-soft: rgba(127, 191, 142, 0.14);
-	--vp-c-warning-1: var(--hb-tight);
-	--vp-c-warning-soft: rgba(224, 178, 90, 0.14);
-	--vp-c-danger-1: var(--hb-bad);
-	--vp-c-danger-soft: rgba(224, 122, 111, 0.14);
-
-	--vp-button-brand-bg: var(--hb-brand);
-	--vp-button-brand-text: var(--hb-bg);
-	--vp-button-brand-hover-bg: #a3b0f7;
-	--vp-button-brand-hover-text: var(--hb-bg);
-	--vp-button-brand-active-bg: #a3b0f7;
-	--vp-button-brand-active-text: var(--hb-bg);
+	--vp-button-brand-bg: var(--hb-color-brand);
+	--vp-button-brand-text: var(--hb-color-on-brand);
+	--vp-button-brand-hover-bg: var(--hb-color-brand);
+	--vp-button-brand-hover-text: var(--hb-color-on-brand);
+	--vp-button-brand-active-bg: var(--hb-color-brand);
+	--vp-button-brand-active-text: var(--hb-color-on-brand);
 
 	--vp-font-family-base:
 		ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -50,17 +40,6 @@
 @supports (font: -apple-system-body) {
 	html {
 		font: -apple-system-body;
-	}
-}
-
-/* Increase Contrast: muted text goes full white, borders get stronger. */
-@media (prefers-contrast: more) {
-	:root,
-	.dark {
-		--vp-c-text-2: var(--hb-text);
-		--vp-c-text-3: var(--hb-text);
-		--vp-c-divider: #6b7280;
-		--vp-c-border: #9aa3ad;
 	}
 }
 
@@ -75,7 +54,7 @@
 
 /* Visible focus on everything. */
 :focus-visible {
-	outline: 3px solid var(--hb-brand);
+	outline: var(--hb-focus-width) solid var(--hb-color-focus);
 	outline-offset: 2px;
 }
 
@@ -88,7 +67,7 @@
 /* 44×44px targets (project rule; WCAG 2.5.8 only asks 24px). Links inside running text are exempt. */
 .VPSidebarItem .item,
 .VPSidebarItem .link {
-	min-height: 44px;
+	min-height: var(--hb-target-min);
 	display: flex;
 	align-items: center;
 }
@@ -98,7 +77,7 @@
 .VPDocOutlineItem .outline-link {
 	display: flex;
 	align-items: center;
-	min-height: 44px;
+	min-height: var(--hb-target-min);
 	line-height: 1.4;
 }
 .VPDocAsideOutline .outline-marker {
@@ -108,18 +87,18 @@
 .VPNavBarHamburger,
 .VPLocalNavOutlineDropdown button,
 .VPLocalNavOutlineDropdown .top-link {
-	min-width: 44px;
-	min-height: 44px;
+	min-width: var(--hb-target-min);
+	min-height: var(--hb-target-min);
 }
 .VPLocalNav .menu {
-	min-height: 44px;
+	min-height: var(--hb-target-min);
 }
 .VPDocFooter .edit-link-button,
 .VPDocFooterLastUpdated {
-	min-height: 44px;
+	min-height: var(--hb-target-min);
 	display: inline-flex;
 	align-items: center;
 }
 .pager-link {
-	min-height: 44px;
+	min-height: var(--hb-target-min);
 }

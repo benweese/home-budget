@@ -1,0 +1,37 @@
+/* Generated from src/tokens.ts by scripts/build-css.ts. Don't edit by hand. */
+:root {
+	color-scheme: dark;
+	--hb-color-bg: #16181d;
+	--hb-color-surface-raised: #1e2128;
+	--hb-color-text: #efece6;
+	--hb-color-text-muted: #9aa3ad;
+	--hb-color-brand: #8b9cf4;
+	--hb-color-on-brand: #16181d;
+	--hb-color-good: #7fbf8e;
+	--hb-color-tight: #e0b25a;
+	--hb-color-bad: #e07a6f;
+	--hb-color-border: #6b7280;
+	--hb-color-border-strong: #9aa3ad;
+	--hb-color-divider: #2c3039;
+	--hb-color-focus: #8b9cf4;
+	--hb-space-1: 0.25rem;
+	--hb-space-2: 0.5rem;
+	--hb-space-3: 0.75rem;
+	--hb-space-4: 1rem;
+	--hb-space-5: 1.5rem;
+	--hb-space-6: 2rem;
+	--hb-space-7: 3rem;
+	--hb-radius-control: 0.5rem;
+	--hb-radius-card: 0.75rem;
+	--hb-radius-pill: 999px;
+	--hb-target-min: max(44px, 2.75rem);
+	--hb-focus-width: 3px;
+}
+
+@media (prefers-contrast: more) {
+	:root {
+		--hb-color-text-muted: #efece6;
+		--hb-color-border: #9aa3ad;
+		--hb-color-divider: #6b7280;
+	}
+}
