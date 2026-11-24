@@ -4,3 +4,7 @@ coverage/
 package-lock.json
 docs/.vitepress/dist/
 docs/.vitepress/cache/
+
+# Written by release-please in its own format
+CHANGELOG.md
+.release-please-manifest.json
