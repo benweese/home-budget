@@ -66,10 +66,9 @@ html {
  */
 @media (forced-colors: active) {
 	button,
-	input,
 	select,
 	textarea,
-	[role="button"] {
+	input:not([type="checkbox"], [type="radio"], [type="range"], [type="hidden"]) {
 		border: 1px solid ButtonText;
 	}
 	:focus-visible {
