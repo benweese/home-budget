@@ -7,6 +7,8 @@ Public repo: a family cash-flow app on Cloudflare Workers + D1 (TypeScript monor
 - **Public code, no personal data:** no real amounts, names, account or card numbers, emails, addresses or
   the app's production domain anywhere (code, tests, mocks, docs, commits). The public docs
   site address (code.benweese.com/home-budget/) is fine. Mocks use a fictional household.
+- **One exception:** the app's name "Budget Ben" (`apps/web/src/app-name.ts`) uses the owner's first name, by
+  the owner's choice. It's the brand, allowed in the UI, tests and docs. No other real names, ever.
 - **No references to private trackers** in commits, PRs or code (no issue numbers from elsewhere).
 - Money is stored and computed as **integer cents**, never floats.
 - TypeScript strict (+ `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`). If a library's types fight
