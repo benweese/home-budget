@@ -66,5 +66,21 @@ export const radius = {
 /** Smallest touch target: 44px, growing with Dynamic Type (2.75rem = 44px at the default 16px root). */
 export const targetMin = "max(44px, 2.75rem)";
 
+/** Type scale in rem, so every size follows Dynamic Type and the browser's font size. */
+export const text = {
+	sm: "0.875rem",
+	md: "1rem",
+	lg: "1.25rem",
+	xl: "1.5rem",
+	"2xl": "2rem",
+	"3xl": "2.5rem",
+} as const;
+
+/** Atkinson Hyperlegible Next (self-hosted, variable 200–800), then system fallbacks. */
+export const fontFamily = '"Atkinson Hyperlegible Next Variable", ui-sans-serif, system-ui, sans-serif';
+
+/** Body line height. */
+export const lineHeight = "1.5";
+
 /** Focus ring width. */
 export const focusWidth = "3px";

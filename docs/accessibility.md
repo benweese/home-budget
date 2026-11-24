@@ -15,6 +15,9 @@ home-budget aims to meet **WCAG 2.2 level AA**, plus the stricter rules below.
 
 ## Rules
 
+How text size, the font, Increase Contrast, forced colours and Smart Invert are handled, and why:
+[ADR 0010](./adr/0010-typography-and-reader-settings).
+
 home-budget targets **WCAG 2.2 AA**, plus the rules below. They apply to every page and component, and
 automated checks (axe) plus a manual pass on real iPhones are part of "done". Automated checks cover only
 part of WCAG, so nothing here is described as "compliant".

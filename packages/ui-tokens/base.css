@@ -1,0 +1,84 @@
+/*
+ * Base styles for home-budget: the self-hosted font, the root font that follows the reader's text size,
+ * amounts, focus, no motion, and forced colours. Import after tokens.css:
+ *   import "@home-budget/ui-tokens/tokens.css";
+ *   import "@home-budget/ui-tokens/base.css";
+ * Hand-written (unlike tokens.css); a test checks the root font order.
+ */
+
+/* Atkinson Hyperlegible Next, variable 200–800, Latin only, served from our own origin (SIL OFL 1.1). */
+@font-face {
+	font-family: "Atkinson Hyperlegible Next Variable";
+	font-style: normal;
+	font-display: swap;
+	font-weight: 200 800;
+	src: url("@fontsource-variable/atkinson-hyperlegible-next/files/atkinson-hyperlegible-next-latin-wght-normal.woff2")
+		format("woff2-variations");
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+		U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/*
+ * Root font, in this order:
+ * 1. font-size: 100% is the fallback everywhere (16px unless the reader changed the browser's size).
+ * 2. font: -apple-system-body is Safari-only: on iPhone and iPad it sets the size from Dynamic Type. Other
+ *    browsers drop it as invalid, so 1 stays in force.
+ * 3. font-family and line-height come after, because the `font` shorthand resets them.
+ * Every other size is in rem, so the whole UI scales from this one value.
+ */
+html {
+	font-size: 100%;
+	font: -apple-system-body;
+	font-family: var(--hb-font-family);
+	line-height: var(--hb-line-height);
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	background: var(--hb-color-bg);
+	color: var(--hb-color-text);
+}
+
+/* Amounts line up in columns: tabular numerals (the font has the tnum feature). */
+.hb-amount {
+	font-variant-numeric: tabular-nums;
+}
+
+/* Visible focus on everything. */
+:focus-visible {
+	outline: var(--hb-focus-width) solid var(--hb-color-focus);
+	outline-offset: 2px;
+}
+
+/* No motion anywhere (a project rule, not just under prefers-reduced-motion). */
+*,
+*::before,
+*::after {
+	transition: none !important;
+	animation: none !important;
+	scroll-behavior: auto !important;
+}
+
+/*
+ * Forced colours (Windows High Contrast and similar): the system palette replaces ours. Keep a visible
+ * border on controls and draw focus with the system Highlight colour. Icons need no rule here: they're drawn
+ * with currentColor in their markup, so they follow the system text colour (a blanket svg fill would fill
+ * outline icons solid).
+ */
+@media (forced-colors: active) {
+	button,
+	select,
+	textarea,
+	input:not([type="checkbox"], [type="radio"], [type="range"], [type="hidden"]) {
+		border: 1px solid ButtonText;
+	}
+	:focus-visible {
+		outline-color: Highlight;
+	}
+}
+
+/*
+ * Smart Invert (inverted-colors): nothing special, on purpose (docs ADR 0010). Safari's Smart Invert already leaves images and media alone, and the UI is dark either way, so
+ * extra rules would only fight the reader's setting.
+ */
+
+/* Increase Contrast comes from tokens.css (prefers-contrast: more overrides). */
