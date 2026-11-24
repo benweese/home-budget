@@ -16,7 +16,8 @@ Public repo: a family cash-flow app on Cloudflare Workers + D1 (TypeScript monor
 ## Workflow
 
 - Before every PR: `npm test`, `npm run lint`, `npm run typecheck`, `npm run format:check`.
-- PR titles are Conventional Commits (`feat:`, `fix:`, `chore:`, `docs:` …); squash merge only.
+- PR titles are Conventional Commits (CONTRIBUTING.md; a required check); squash merge only. release-please
+  writes CHANGELOG.md and the version from them: never edit either by hand.
 - Unit tests: Vitest. Worker code runs in workerd (`@cloudflare/vitest-plugin`); build-time packages in
   Node. Coverage is Istanbul (V8 isn't supported by the Workers integration). E2E lives in home-budget-e2e.
 - Claude plugins (benweese marketplace): docs, workflow, accessibility, privacy, guardrails — see README.

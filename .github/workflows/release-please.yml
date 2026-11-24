@@ -1,0 +1,35 @@
+# release-please: on every push to main, opens or updates a release PR (version bump + CHANGELOG.md from the
+# Conventional Commit titles), and when that PR is merged, tags the version and publishes a GitHub Release.
+# Uses a fine-grained PAT scoped to this repo (Contents + Pull requests read/write), because PRs opened with
+# GITHUB_TOKEN don't trigger CI. googleapis/release-please-action is allow-listed by name; this file pins the SHA.
+# Docs: https://github.com/googleapis/release-please-action
+name: release-please
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      # Without the token the release PR would never get CI; fail loudly instead.
+      - name: Check the release token is set
+        env:
+          TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::error::RELEASE_PLEASE_TOKEN isn't set in this repo, so no release PR was made."
+            exit 1
+          fi
+      - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
+        with:
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
