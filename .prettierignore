@@ -5,6 +5,9 @@ package-lock.json
 docs/.vitepress/dist/
 docs/.vitepress/cache/
 
+# Generated from packages/ui-tokens/src/tokens.ts (a test checks it matches)
+packages/ui-tokens/tokens.css
+
 # Written by release-please in its own format
 CHANGELOG.md
 .release-please-manifest.json
