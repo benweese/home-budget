@@ -27,9 +27,9 @@
 
 	--vp-button-brand-bg: var(--hb-color-brand);
 	--vp-button-brand-text: var(--hb-color-on-brand);
-	--vp-button-brand-hover-bg: var(--hb-color-brand);
+	--vp-button-brand-hover-bg: color-mix(in srgb, var(--hb-color-brand) 85%, var(--hb-color-text));
 	--vp-button-brand-hover-text: var(--hb-color-on-brand);
-	--vp-button-brand-active-bg: var(--hb-color-brand);
+	--vp-button-brand-active-bg: color-mix(in srgb, var(--hb-color-brand) 75%, var(--hb-color-text));
 	--vp-button-brand-active-text: var(--hb-color-on-brand);
 
 	--vp-font-family-base:
