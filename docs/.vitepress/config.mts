@@ -43,6 +43,7 @@ export default defineConfig({
 						link: "/adr/0008-squash-conventional-commits-release-please",
 					},
 					{ text: "0009 Actions supply chain", link: "/adr/0009-actions-supply-chain" },
+					{ text: "0010 Typography", link: "/adr/0010-typography-and-reader-settings" },
 				],
 			},
 		],

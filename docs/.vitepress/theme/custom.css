@@ -1,4 +1,4 @@
-/* Colours, focus and target size come from @home-budget/ui-tokens (imported in index.ts), mapped onto
+/* Colours, type, focus and target size come from @home-budget/ui-tokens (imported in index.ts), mapped onto
    VitePress's variables. Increase Contrast is handled by the tokens' own prefers-contrast overrides. */
 :root,
 .dark {
@@ -32,31 +32,10 @@
 	--vp-button-brand-active-bg: color-mix(in srgb, var(--hb-color-brand) 75%, var(--hb-color-text));
 	--vp-button-brand-active-text: var(--hb-color-on-brand);
 
-	--vp-font-family-base:
-		ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--vp-font-family-base: var(--hb-font-family);
 }
 
-/* Text follows the reader's settings: rem everywhere, iOS Dynamic Type on Apple devices. */
-@supports (font: -apple-system-body) {
-	html {
-		font: -apple-system-body;
-	}
-}
-
-/* No motion anywhere. */
-*,
-*::before,
-*::after {
-	transition: none !important;
-	animation: none !important;
-	scroll-behavior: auto !important;
-}
-
-/* Visible focus on everything. */
-:focus-visible {
-	outline: var(--hb-focus-width) solid var(--hb-color-focus);
-	outline-offset: 2px;
-}
+/* Root font (Dynamic Type), font, focus, no motion and forced colours come from @home-budget/ui-tokens/base.css. */
 
 /* Links are underlined so they don't rely on colour alone. */
 .vp-doc a {
