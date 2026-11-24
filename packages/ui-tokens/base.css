@@ -60,7 +60,9 @@ html {
 
 /*
  * Forced colours (Windows High Contrast and similar): the system palette replaces ours. Keep a visible
- * border on controls, draw focus with the system Highlight colour, and let icons follow the text colour.
+ * border on controls and draw focus with the system Highlight colour. Icons need no rule here: they're drawn
+ * with currentColor in their markup, so they follow the system text colour (a blanket svg fill would fill
+ * outline icons solid).
  */
 @media (forced-colors: active) {
 	button,
@@ -73,15 +75,10 @@ html {
 	:focus-visible {
 		outline-color: Highlight;
 	}
-	svg {
-		fill: currentColor;
-		stroke: currentColor;
-	}
 }
 
 /*
- * Smart Invert (inverted-colors): nothing special, on purpose (decided for the earlier Apps Script pages and
- * kept here). Safari's Smart Invert already leaves images and media alone, and the UI is dark either way, so
+ * Smart Invert (inverted-colors): nothing special, on purpose (docs ADR 0010). Safari's Smart Invert already leaves images and media alone, and the UI is dark either way, so
  * extra rules would only fight the reader's setting.
  */
 

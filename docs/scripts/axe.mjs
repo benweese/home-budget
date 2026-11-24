@@ -186,6 +186,24 @@ function extra(where, problems) {
 				if (clips && el.scrollWidth > el.clientWidth + 1)
 					out.push(`text cut off: "${(el.textContent ?? "").trim().slice(0, 40)}"`);
 			}
+			// Fixed-height chrome (nav bar, sidebar, mobile nav): any clipping box whose content is taller or wider
+			// than the box hides text at this size.
+			for (const el of document.querySelectorAll(".VPNav *, .VPLocalNav *, .VPSidebar *")) {
+				const style = getComputedStyle(el);
+				const clipsY = ["hidden", "clip"].includes(style.overflowY);
+				const clipsX = ["hidden", "clip"].includes(style.overflowX);
+				const r = el.getBoundingClientRect();
+				if (r.width === 0 || r.height === 0 || style.visibility === "hidden") continue;
+				// Screen-reader-only text is clipped on purpose; a box with no text hides nothing readable.
+				if (el.matches(".visually-hidden, .sr-only") || !(el.textContent ?? "").trim()) continue;
+				if (
+					(clipsY && el.scrollHeight > el.clientHeight + 1) ||
+					(clipsX && el.scrollWidth > el.clientWidth + 1)
+				)
+					out.push(
+						`clipped in ${el.className || el.tagName}: "${(el.textContent ?? "").trim().replace(/\s+/g, " ").slice(0, 40)}"`,
+					);
+			}
 			return out;
 		});
 		extra(`[largest text] ${BASE}${p}`, problems);

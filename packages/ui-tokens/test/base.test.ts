@@ -23,3 +23,7 @@ test("amounts use tabular numerals and Smart Invert has no special rules", () =>
 	expect(css).toMatch(/\.hb-amount \{\s*font-variant-numeric: tabular-nums;/);
 	expect(css).not.toMatch(/@media[^{]*inverted-colors/);
 });
+
+test("forced colours don't restyle every svg (outline icons would fill solid)", () => {
+	expect(css).not.toMatch(/@media \(forced-colors: active\)[^@]*\bsvg\s*\{/);
+});

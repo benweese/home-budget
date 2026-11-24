@@ -22,8 +22,8 @@ the largest Accessibility sizes, and line amounts up in columns.
      Every other size is in rem (`--hb-text-*`), so the whole UI scales from this one value.
 - **Amounts** use `.hb-amount` (`font-variant-numeric: tabular-nums`).
 - **Increase Contrast:** the tokens' `prefers-contrast: more` overrides (muted text full white, strong borders).
-- **Forced colours:** controls keep a visible border, focus uses the system `Highlight` colour, icons follow
-  `currentColor`.
+- **Forced colours:** controls keep a visible border and focus uses the system `Highlight` colour. Icons are
+  drawn with `currentColor` in their markup, so they follow the system text colour without a blanket rule.
 - **Smart Invert:** nothing special. Safari already leaves images and media alone, and the UI is dark either
   way, so extra rules would only fight the reader's setting.
 - **No motion** anywhere.
