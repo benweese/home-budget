@@ -6,7 +6,8 @@
 	"license": "MIT",
 	"workspaces": [
 		"packages/*",
-		"apps/*"
+		"apps/*",
+		"docs"
 	],
 	"engines": {
 		"node": ">=24"
@@ -17,13 +18,16 @@
 		"lint": "eslint .",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
-		"typecheck": "npm run typecheck --workspaces --if-present"
+		"typecheck": "npm run typecheck --workspaces --if-present",
+		"docs:build": "npm run build -w @home-budget/docs",
+		"docs:a11y": "npm run a11y -w @home-budget/docs"
 	},
 	"devDependencies": {
 		"@eslint/js": "10.0.1",
 		"@vitest/coverage-istanbul": "5.1.1",
 		"eslint": "10.15.0",
 		"eslint-config-prettier": "10.1.8",
+		"globals": "17.14.0",
 		"prettier": "3.10.1",
 		"typescript": "6.0.3",
 		"typescript-eslint": "8.73.0",

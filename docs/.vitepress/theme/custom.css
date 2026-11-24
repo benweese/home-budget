@@ -1,0 +1,92 @@
+/* Brand tokens (dark only): base #16181d, text #efece6, muted #9aa3ad, brand periwinkle #8b9cf4,
+   status good #7fbf8e / tight #e0b25a / bad #e07a6f. Periwinkle buttons carry charcoal text. */
+:root,
+.dark {
+	--hb-bg: #16181d;
+	--hb-bg-raised: #1e2128;
+	--hb-bg-sunken: #121419;
+	--hb-text: #efece6;
+	--hb-muted: #9aa3ad;
+	--hb-brand: #8b9cf4;
+	--hb-good: #7fbf8e;
+	--hb-tight: #e0b25a;
+	--hb-bad: #e07a6f;
+
+	--vp-c-bg: var(--hb-bg);
+	--vp-c-bg-alt: var(--hb-bg-sunken);
+	--vp-c-bg-elv: var(--hb-bg-raised);
+	--vp-c-bg-soft: var(--hb-bg-raised);
+	--vp-c-text-1: var(--hb-text);
+	--vp-c-text-2: var(--hb-muted);
+	--vp-c-text-3: var(--hb-muted);
+	--vp-c-divider: #2c3039;
+	--vp-c-border: #3a3f4a;
+	--vp-c-gutter: #2c3039;
+
+	--vp-c-brand-1: var(--hb-brand);
+	--vp-c-brand-2: #a3b0f7;
+	--vp-c-brand-3: var(--hb-brand);
+	--vp-c-brand-soft: rgba(139, 156, 244, 0.16);
+
+	--vp-c-tip-1: var(--hb-good);
+	--vp-c-tip-soft: rgba(127, 191, 142, 0.14);
+	--vp-c-warning-1: var(--hb-tight);
+	--vp-c-warning-soft: rgba(224, 178, 90, 0.14);
+	--vp-c-danger-1: var(--hb-bad);
+	--vp-c-danger-soft: rgba(224, 122, 111, 0.14);
+
+	--vp-button-brand-bg: var(--hb-brand);
+	--vp-button-brand-text: var(--hb-bg);
+	--vp-button-brand-hover-bg: #a3b0f7;
+	--vp-button-brand-hover-text: var(--hb-bg);
+	--vp-button-brand-active-bg: #a3b0f7;
+	--vp-button-brand-active-text: var(--hb-bg);
+
+	--vp-font-family-base:
+		ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Text follows the reader's settings: rem everywhere, iOS Dynamic Type on Apple devices. */
+@supports (font: -apple-system-body) {
+	html {
+		font: -apple-system-body;
+	}
+}
+
+/* Increase Contrast: muted text goes full white, borders get stronger. */
+@media (prefers-contrast: more) {
+	:root,
+	.dark {
+		--vp-c-text-2: var(--hb-text);
+		--vp-c-text-3: var(--hb-text);
+		--vp-c-divider: #6b7280;
+		--vp-c-border: #9aa3ad;
+	}
+}
+
+/* No motion anywhere. */
+*,
+*::before,
+*::after {
+	transition: none !important;
+	animation: none !important;
+	scroll-behavior: auto !important;
+}
+
+/* Visible focus on everything. */
+:focus-visible {
+	outline: 3px solid var(--hb-brand);
+	outline-offset: 2px;
+}
+
+/* Links are underlined so they don't rely on colour alone. */
+.vp-doc a {
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+/* Label in Name (WCAG 2.5.3): the search button's accessible name is "Search", so its visible text must be
+   too. The keyboard shortcut still works; only its hint is hidden. */
+.DocSearch-Button-Keys {
+	display: none !important;
+}

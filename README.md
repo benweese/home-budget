@@ -1,5 +1,7 @@
 # home-budget
 
+**Docs:** https://code.benweese.com/home-budget/ (decisions, accessibility, supported devices)
+
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/benweese/home-budget/badge)](https://scorecard.dev/viewer/?uri=github.com/benweese/home-budget)
 
 A simple family cash-flow app: forecast what's safe to spend, weekly envelopes, bank sync. Cloudflare Workers + D1, accessible by default.
@@ -21,7 +23,8 @@ npm run typecheck      # tsc --noEmit in every workspace
 npm run format:check   # Prettier
 ```
 
-Workspaces: `packages/ui-tokens`, `apps/worker`, `apps/web`. After changing `apps/worker/wrangler.jsonc`, run `npm run cf-typegen -w @home-budget/worker`.
+Workspaces: `packages/ui-tokens`, `apps/worker`, `apps/web`, `docs` (the VitePress docs site: `npm run docs:build`,
+then `npm run docs:a11y` for the axe check; `npm run dev -w @home-budget/docs` to preview). After changing `apps/worker/wrangler.jsonc`, run `npm run cf-typegen -w @home-budget/worker`.
 
 ## Claude Code
 
