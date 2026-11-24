@@ -1,0 +1,12 @@
+{
+	"extraKnownMarketplaces": {
+		"benweese": { "source": { "source": "github", "repo": "benweese/claude-plugins" } }
+	},
+	"enabledPlugins": {
+		"docs@benweese": true,
+		"workflow@benweese": true,
+		"accessibility@benweese": true,
+		"privacy@benweese": true,
+		"guardrails@benweese": true
+	}
+}
