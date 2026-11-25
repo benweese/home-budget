@@ -11,3 +11,4 @@ packages/ui-tokens/tokens.css
 # Written by release-please in its own format
 CHANGELOG.md
 .release-please-manifest.json
+.vitest/

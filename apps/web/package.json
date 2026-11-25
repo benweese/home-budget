@@ -8,12 +8,13 @@
 		"typecheck": "tsc --noEmit -p ."
 	},
 	"dependencies": {
+		"@home-budget/ui-tokens": "*",
 		"@preact/signals": "2.11.4",
-		"preact": "11.2.0",
-		"@home-budget/ui-tokens": "*"
+		"preact": "11.2.0"
 	},
 	"devDependencies": {
 		"@preact/preset-vite": "2.10.6",
+		"@vitest/browser-playwright": "5.1.1",
 		"vite": "8.3.8"
 	}
 }
