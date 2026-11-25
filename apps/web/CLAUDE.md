@@ -18,3 +18,7 @@ The front end: Preact + Signals, built by Vite into `dist/`, which the Worker se
 - Tests: pure helpers in Node (`test/*.test.ts`); components in a real browser via Vitest browser mode
   (`test/components/`, `vitest.components.config.ts`). Grid tracks use `minmax(0, 1fr)` (large text).
 - Dev: `npm run dev:web` (vite build --watch) + `npm run dev:worker` (wrangler dev) in two terminals.
+- **PWA** (ADR 0013): `public/manifest.webmanifest` + `public/icons/` (the icon source). No service worker yet.
+  Keep 192/512 `any` and the maskable 512 as separate entries; `test/manifest.test.ts` checks it all.
+  `budget-ben-icon-1024.png` and `budget-ben-icon-maskable.svg` are source art (not linked): regenerate the
+  PNGs from the SVGs; the maskable art stays scaled to ≤ 0.8 (safe zone; tested).

@@ -46,6 +46,7 @@ export default defineConfig({
 					{ text: "0010 Typography", link: "/adr/0010-typography-and-reader-settings" },
 					{ text: "0011 Serving + CSP", link: "/adr/0011-serving-and-security-headers" },
 					{ text: "0012 Component kit", link: "/adr/0012-component-kit" },
+					{ text: "0013 PWA manifest", link: "/adr/0013-pwa-manifest-no-service-worker" },
 				],
 			},
 		],

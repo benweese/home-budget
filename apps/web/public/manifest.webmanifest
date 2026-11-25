@@ -1,0 +1,25 @@
+{
+	"id": "/",
+	"name": "Budget Ben",
+	"short_name": "Budget Ben",
+	"description": "A simple family cash-flow app: what's safe to spend, weekly envelopes, bank sync.",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"background_color": "#16181d",
+	"theme_color": "#16181d",
+	"categories": ["finance"],
+	"lang": "en-US",
+	"dir": "ltr",
+	"icons": [
+		{ "src": "/icons/budget-ben-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+		{ "src": "/icons/budget-ben-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+		{ "src": "/icons/budget-ben-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+		{
+			"src": "/icons/budget-ben-icon-maskable-512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
+	]
+}
