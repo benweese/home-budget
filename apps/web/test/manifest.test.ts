@@ -88,3 +88,20 @@ test("index.html links the manifest, the icons and the iOS title", () => {
 	expect(pngSize("/icons/budget-ben-icon-180.png")).toBe("180x180");
 	expect(html).toContain(`<meta name="apple-mobile-web-app-title" content="${APP_NAME}" />`);
 });
+
+test("the description is the same in the manifest and index.html", () => {
+	// Prettier may wrap the tag over several lines, so match the attribute, not the exact line.
+	const inHtml = /<meta\s+name="description"\s+content="([^"]*)"/.exec(html)?.[1];
+	expect(inHtml, "index.html has no description meta").toBeDefined();
+	expect(inHtml).toBe(field("description"));
+});
+
+test("the maskable icon's art sits inside the 80% safe zone (scaled to 0.8 or less)", () => {
+	const data = iconData("/icons/budget-ben-icon-maskable.svg") ?? "";
+	const svg = data.startsWith("data:image/svg+xml;base64,")
+		? atob(data.slice(data.indexOf(",") + 1))
+		: decodeURIComponent(data.slice(data.indexOf(",") + 1));
+	const scale = /scale\(([\d.]+)\)/.exec(svg)?.[1];
+	expect(scale, "maskable SVG has no scale() around its art").toBeDefined();
+	expect(Number(scale)).toBeLessThanOrEqual(0.8);
+});

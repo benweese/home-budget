@@ -67,35 +67,42 @@ console.log(
 // display, and 192px + 512px "any" icons that load. (Page.getInstallabilityErrors isn't usable: in headless
 // Chromium it returns no errors even with no manifest. Lighthouse dropped its PWA audit in v12.)
 const installProblems = [];
-const cdp = await smokePage.context().newCDPSession(smokePage);
-const appManifest = await cdp.send("Page.getAppManifest");
-if (!appManifest.url) installProblems.push("Chromium found no manifest link on the page");
-for (const e of appManifest.errors ?? []) installProblems.push(`manifest parse error: ${e.message}`);
-let parsed = {};
-if (appManifest.url) {
-	try {
-		parsed = JSON.parse(appManifest.data);
-	} catch {
-		installProblems.push("manifest isn't valid JSON");
+try {
+	const cdp = await smokePage.context().newCDPSession(smokePage);
+	const appManifest = await cdp.send("Page.getAppManifest");
+	if (!appManifest.url) installProblems.push("Chromium found no manifest link on the page");
+	for (const e of appManifest.errors ?? []) installProblems.push(`manifest parse error: ${e.message}`);
+	let parsed = {};
+	if (appManifest.url) {
+		try {
+			parsed = JSON.parse(appManifest.data);
+		} catch {
+			installProblems.push("manifest isn't valid JSON");
+		}
 	}
+	const manifestRes = appManifest.url ? await fetch(appManifest.url) : undefined;
+	const manifestType = manifestRes?.headers.get("content-type") ?? "";
+	if (manifestRes && !/json/.test(manifestType)) installProblems.push(`manifest served as "${manifestType}"`);
+	if (!parsed.name && !parsed.short_name) installProblems.push("manifest has no name");
+	if (!parsed.start_url) installProblems.push("manifest has no start_url");
+	if (!["standalone", "fullscreen", "minimal-ui"].includes(parsed.display))
+		installProblems.push(`display is "${parsed.display}", not standalone`);
+	const icons = Array.isArray(parsed.icons) ? parsed.icons : [];
+	for (const size of ["192x192", "512x512"]) {
+		const icon = icons.find((i) => i.sizes === size && (i.purpose ?? "any").split(" ").includes("any"));
+		if (!icon) installProblems.push(`no ${size} icon with purpose "any"`);
+	}
+	for (const icon of icons) {
+		const res = await fetch(new URL(icon.src, appManifest.url || origin));
+		if (!res.ok) installProblems.push(`icon ${icon.src}: HTTP ${res.status}`);
+	}
+} catch (error) {
+	installProblems.push(
+		`install check couldn't finish: ${error instanceof Error ? error.message : String(error)}`,
+	);
+} finally {
+	await smoke.close();
 }
-const manifestRes = appManifest.url ? await fetch(appManifest.url) : undefined;
-const manifestType = manifestRes?.headers.get("content-type") ?? "";
-if (manifestRes && !/json/.test(manifestType)) installProblems.push(`manifest served as "${manifestType}"`);
-if (!parsed.name && !parsed.short_name) installProblems.push("manifest has no name");
-if (!parsed.start_url) installProblems.push("manifest has no start_url");
-if (!["standalone", "fullscreen", "minimal-ui"].includes(parsed.display))
-	installProblems.push(`display is "${parsed.display}", not standalone`);
-const icons = Array.isArray(parsed.icons) ? parsed.icons : [];
-for (const size of ["192x192", "512x512"]) {
-	const icon = icons.find((i) => i.sizes === size && (i.purpose ?? "any").split(" ").includes("any"));
-	if (!icon) installProblems.push(`no ${size} icon with purpose "any"`);
-}
-for (const icon of icons) {
-	const res = await fetch(new URL(icon.src, appManifest.url || origin));
-	if (!res.ok) installProblems.push(`icon ${icon.src}: HTTP ${res.status}`);
-}
-await smoke.close();
 console.log(
 	installProblems.length === 0
 		? "✓ installable (Chromium finds and parses the manifest; name, start_url, standalone, 192 + 512 icons load)"
