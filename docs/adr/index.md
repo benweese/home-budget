@@ -18,3 +18,4 @@ one: [ADR 0001](./0001-record-architecture-decisions).
 | [0010](./0010-typography-and-reader-settings)             | Atkinson Hyperlegible Next, Dynamic Type root font, reader settings | Accepted |
 | [0011](./0011-serving-and-security-headers)               | Workers Static Assets, strict CSP proven in CI                      | Accepted |
 | [0012](./0012-component-kit)                              | Accessible component kit; Vitest browser mode + gallery checks      | Accepted |
+| [0013](./0013-pwa-manifest-no-service-worker)             | Installable PWA: manifest + icons, no service worker yet            | Accepted |
