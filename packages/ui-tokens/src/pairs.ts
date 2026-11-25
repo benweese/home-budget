@@ -18,6 +18,7 @@ export const pairs: readonly Pair[] = [
 		textColours.map((fg) => ({ fg, bg, min: MIN_TEXT, use: `${fg} text on ${bg}` })),
 	),
 	{ fg: "onBrand", bg: "brand", min: MIN_TEXT, use: "button text on periwinkle" },
+	{ fg: "onBrand", bg: "tight", min: MIN_TEXT, use: "caution banner text on amber" },
 	...surfaces.flatMap((bg) => [
 		{ fg: "border" as const, bg, min: MIN_UI, use: `control outline on ${bg}` },
 		{ fg: "focus" as const, bg, min: MIN_UI, use: `focus ring on ${bg}` },

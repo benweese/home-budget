@@ -1,6 +1,6 @@
 {
 	"extends": "../../tsconfig.base.json",
-	"include": ["src", "test", "vite.config.ts", "vitest.config.ts"],
+	"include": ["src", "test", "vite.config.ts", "vitest.config.ts", "vitest.components.config.ts"],
 	"compilerOptions": {
 		"lib": ["ES2023", "DOM", "DOM.Iterable"],
 		"jsx": "react-jsx",

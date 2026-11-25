@@ -1,0 +1,164 @@
+/* Component kit. Colours, type, spacing, radius, focus and target size all come from @home-budget/ui-tokens.
+   No animations; nothing depends on colour alone (every state has words, most have an icon). */
+
+.hb-icon {
+	flex: none;
+	vertical-align: -0.125em;
+}
+
+/* Buttons */
+.hb-button-wrap {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--hb-space-2) var(--hb-space-3);
+}
+.hb-button {
+	max-width: 100%;
+	overflow-wrap: anywhere;
+	min-height: var(--hb-target-min);
+	min-width: var(--hb-target-min);
+	padding: var(--hb-space-2) var(--hb-space-4);
+	border-radius: var(--hb-radius-control);
+	font: inherit;
+	font-weight: 700;
+	cursor: pointer;
+	border: 2px solid var(--hb-color-brand);
+}
+.hb-button--primary {
+	background: var(--hb-color-brand);
+	color: var(--hb-color-on-brand);
+}
+.hb-button--secondary {
+	background: transparent;
+	color: var(--hb-color-brand);
+}
+/* Unavailable: same colours (contrast stays), dashed outline plus the visible reason. */
+.hb-button[aria-disabled="true"] {
+	cursor: not-allowed;
+	border-style: dashed;
+}
+.hb-button-reason {
+	color: var(--hb-color-text-muted);
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+/* Fields */
+.hb-field {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: var(--hb-space-1);
+}
+.hb-label {
+	font-weight: 700;
+}
+.hb-hint {
+	margin: 0;
+	color: var(--hb-color-text-muted);
+}
+.hb-input,
+.hb-select {
+	min-height: var(--hb-target-min);
+	padding: var(--hb-space-2) var(--hb-space-3);
+	font: inherit;
+	color: var(--hb-color-text);
+	background: var(--hb-color-surface-raised);
+	border: 1px solid var(--hb-color-border);
+	border-radius: var(--hb-radius-control);
+	/* Fill the column instead of the input's built-in width, which gets huge at large text sizes. */
+	width: 100%;
+	min-width: 0;
+	box-sizing: border-box;
+}
+.hb-input[aria-invalid="true"] {
+	border: 2px solid var(--hb-color-bad);
+}
+.hb-error {
+	margin: 0;
+	min-height: 0;
+}
+.hb-error-text {
+	display: inline-flex;
+	gap: var(--hb-space-2);
+	align-items: baseline;
+	color: var(--hb-color-bad);
+	font-weight: 700;
+}
+
+/* Answer card */
+.hb-answer {
+	background: var(--hb-color-surface-raised);
+	border-radius: var(--hb-radius-card);
+	border-left: 0.375rem solid var(--tone);
+	padding: var(--hb-space-4);
+}
+.hb-answer--good {
+	--tone: var(--hb-color-good);
+}
+.hb-answer--tight {
+	--tone: var(--hb-color-tight);
+}
+.hb-answer--bad {
+	--tone: var(--hb-color-bad);
+}
+.hb-answer-heading {
+	display: flex;
+	gap: var(--hb-space-2);
+	align-items: baseline;
+	margin: 0;
+	font-size: var(--hb-text-xl);
+	color: var(--tone);
+}
+.hb-answer-body {
+	margin-top: var(--hb-space-2);
+}
+
+/* Banner */
+.hb-banner {
+	border-radius: var(--hb-radius-card);
+	padding: var(--hb-space-3) var(--hb-space-4);
+	border: 2px solid var(--tone);
+	color: var(--hb-color-text);
+}
+.hb-banner--info {
+	--tone: var(--hb-color-brand);
+}
+.hb-banner--bad {
+	--tone: var(--hb-color-bad);
+}
+.hb-banner--caution {
+	--tone: var(--hb-color-tight);
+	background: var(--hb-color-tight);
+	color: var(--hb-color-on-brand);
+}
+.hb-banner-title {
+	display: flex;
+	gap: var(--hb-space-2);
+	align-items: baseline;
+	margin: 0;
+	font-weight: 700;
+}
+.hb-banner--info .hb-icon,
+.hb-banner--bad .hb-icon {
+	color: var(--tone);
+}
+.hb-banner-body {
+	margin-top: var(--hb-space-1);
+}
+
+/* Footer link */
+.hb-footer-link {
+	display: inline-flex;
+	align-items: center;
+	min-height: var(--hb-target-min);
+	color: var(--hb-color-brand);
+}
+
+/* Forced colours: the answer card's coloured border and heading would vanish; keep a visible border. */
+@media (forced-colors: active) {
+	.hb-answer,
+	.hb-banner {
+		border: 2px solid CanvasText;
+	}
+}

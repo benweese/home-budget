@@ -66,11 +66,11 @@ console.log(
 const result = await runA11yChecks({
 	origin,
 	base: "/",
-	pages: ["", "some/unknown/page"],
-	forcedPages: [""],
+	pages: ["", "gallery", "some/unknown/page"],
+	forcedPages: ["", "gallery"],
 	inlineLinks: "main p",
 	exemptTargets: ".skip-link",
-	textSelector: "main h1, main h2, main p, .site-header p, .site-footer p",
+	textSelector: "main h1, main h2, main h3, main p, main label, .site-header p, .site-footer p",
 	chromeSelector: ".site-header *, .site-footer *",
 	requireCsp: true,
 });
