@@ -50,3 +50,16 @@ test("an available button has no aria-disabled and no description", async () => 
 	await expect.element(button).not.toHaveAttribute("aria-disabled");
 	await expect.element(button).not.toHaveAttribute("aria-describedby");
 });
+
+test("an empty unavailableReason counts as available (no aria-disabled, presses work)", async () => {
+	const onPress = vi.fn();
+	mount(
+		<Button onPress={onPress} unavailableReason="">
+			Save
+		</Button>,
+	);
+	const button = page.getByRole("button", { name: "Save" });
+	await expect.element(button).not.toHaveAttribute("aria-disabled");
+	await button.click();
+	expect(onPress).toHaveBeenCalledTimes(1);
+});
