@@ -1,6 +1,6 @@
 import { defineProject } from "vitest/config";
 
-// Pure helpers only for now; Preact component tests are set up with the component kit.
+// Pure helpers in Node. Component tests run in a real browser: vitest.components.config.ts.
 export default defineProject({
-	test: { name: "web", environment: "node" },
+	test: { name: "web", environment: "node", include: ["test/*.test.ts"] },
 });

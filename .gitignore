@@ -172,3 +172,7 @@ vite.config.ts.timestamp-*
 # VitePress build output and cache
 docs/.vitepress/dist/
 docs/.vitepress/cache/
+
+# Vitest browser-mode failure screenshots
+.vitest/
+apps/*/.vitest/

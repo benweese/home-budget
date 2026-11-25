@@ -12,5 +12,9 @@ The front end: Preact + Signals, built by Vite into `dist/`, which the Worker se
   `@preact/signals` binds to it and signal updates never re-render. Keep it.
 - Layout: 1 → 2 → 3 columns at 40rem / 64rem (rem, so large text gets fewer columns). Every size from tokens.
 - Words before colour: every status has text (`statusText` in `src/health.ts`).
-- Unit tests (Node) cover pure helpers; component tests come with the component kit.
+- **Components** (`src/components/`, ADR 0012): Button (no disabled style: `unavailableReason` → aria-disabled +
+  linked visible reason; presses blocked), TextField, SelectField (native), AnswerCard, Banner, FooterLink, Icon.
+  Every state goes on `/gallery` (made-up data only), which `npm run app:a11y` checks.
+- Tests: pure helpers in Node (`test/*.test.ts`); components in a real browser via Vitest browser mode
+  (`test/components/`, `vitest.components.config.ts`). Grid tracks use `minmax(0, 1fr)` (large text).
 - Dev: `npm run dev:web` (vite build --watch) + `npm run dev:worker` (wrangler dev) in two terminals.

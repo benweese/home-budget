@@ -45,6 +45,7 @@ export default defineConfig({
 					{ text: "0009 Actions supply chain", link: "/adr/0009-actions-supply-chain" },
 					{ text: "0010 Typography", link: "/adr/0010-typography-and-reader-settings" },
 					{ text: "0011 Serving + CSP", link: "/adr/0011-serving-and-security-headers" },
+					{ text: "0012 Component kit", link: "/adr/0012-component-kit" },
 				],
 			},
 		],
