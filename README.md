@@ -39,7 +39,8 @@ accessibility, privacy and guardrails (`.claude/settings.json`). Install them on
   secrets before Claude commits. The privacy denylist lives outside the repo (a sibling folder, never
   committed); without it the scan says "denylist skipped" and still runs. For commits made outside Claude,
   run `install-privacy-git-hook` once, and again after each privacy plugin update.
-- **`.claude/board.json` is local only** (gitignored): it's the maintainer's task-board config.
+- **`.claude/board.json` and `.claude/privacy.json` are local only** (gitignored): the maintainer's
+  task-board and privacy config.
 - Accessibility rules: [docs/accessibility.md](docs/accessibility.md).
 
 ## License

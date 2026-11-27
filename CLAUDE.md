@@ -1,6 +1,7 @@
 # home-budget
 
-Public repo: a family cash-flow app on Cloudflare Workers + D1 (TypeScript monorepo). Read README.md first.
+Private; may go public once a gitleaks scan, secret scanning + push protection and code scanning are on (Ben
+decides). A family cash-flow app on Cloudflare Workers + D1 (TypeScript monorepo). Read README.md first.
 
 ## Rules
 
@@ -10,6 +11,7 @@ Public repo: a family cash-flow app on Cloudflare Workers + D1 (TypeScript monor
 - **One exception:** the app's name "Budget Ben" (`apps/web/src/app-name.ts`) uses the owner's first name, by
   the owner's choice. It's the brand, allowed in the UI, tests and docs. No other real names, ever.
 - **No references to private trackers** in commits, PRs or code (no issue numbers from elsewhere).
+  Branches use this repo's own issue numbers.
 - Money is stored and computed as **integer cents**, never floats.
 - TypeScript strict (+ `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`). If a library's types fight
   `exactOptionalPropertyTypes`, relax it with an ADR note, never with casts.
@@ -24,7 +26,7 @@ Public repo: a family cash-flow app on Cloudflare Workers + D1 (TypeScript monor
 - Unit tests: Vitest. Worker code runs in workerd (`@cloudflare/vitest-plugin`); build-time packages in
   Node. Coverage is Istanbul (V8 isn't supported by the Workers integration). E2E lives in home-budget-e2e.
 - Claude plugins (benweese marketplace): docs, workflow, accessibility, privacy, guardrails — see README.
-  `.claude/board.json` is local only (gitignored); never commit it.
+  `.claude/board.json` and `.claude/privacy.json` are local only (gitignored); never commit them.
 - A privacy or secret block on commit is a real finding: fix the line, never bypass it.
 
 ## Layout
