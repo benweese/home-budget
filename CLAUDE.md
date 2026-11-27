@@ -26,7 +26,7 @@ owner decides). The public-code rules below apply now. A family cash-flow app on
 - Unit tests: Vitest. Worker code runs in workerd (`@cloudflare/vitest-plugin`); build-time packages in
   Node. Coverage is Istanbul (V8 isn't supported by the Workers integration). E2E lives in home-budget-e2e.
 - Claude plugins (benweese marketplace): docs, workflow, accessibility, privacy, guardrails — see README.
-  `.claude/board.json` and `.claude/privacy.json` are local only (gitignored); never commit them.
+  `.claude/board.json` is local only (gitignored); never commit it.
 - A privacy or secret block on commit is a real finding: fix the line, never bypass it.
 
 ## Layout
