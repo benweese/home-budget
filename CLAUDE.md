@@ -1,6 +1,8 @@
 # home-budget
 
-Public repo: a family cash-flow app on Cloudflare Workers + D1 (TypeScript monorepo). Read README.md first.
+Private; may go public once a gitleaks scan, secret scanning + push protection and code scanning are on (the
+owner decides). The public-code rules below apply now. A family cash-flow app on Cloudflare Workers + D1
+(TypeScript monorepo). Read README.md first.
 
 ## Rules
 
@@ -10,6 +12,7 @@ Public repo: a family cash-flow app on Cloudflare Workers + D1 (TypeScript monor
 - **One exception:** the app's name "Budget Ben" (`apps/web/src/app-name.ts`) uses the owner's first name, by
   the owner's choice. It's the brand, allowed in the UI, tests and docs. No other real names, ever.
 - **No references to private trackers** in commits, PRs or code (no issue numbers from elsewhere).
+  Branches use this repo's own issue numbers.
 - Money is stored and computed as **integer cents**, never floats.
 - TypeScript strict (+ `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`). If a library's types fight
   `exactOptionalPropertyTypes`, relax it with an ADR note, never with casts.
