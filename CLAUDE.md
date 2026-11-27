@@ -1,7 +1,8 @@
 # home-budget
 
 Private; may go public once a gitleaks scan, secret scanning + push protection and code scanning are on (the
-owner decides). The public-code rules below apply now. A family cash-flow app on Cloudflare Workers + D1 (TypeScript monorepo). Read README.md first.
+owner decides). The public-code rules below apply now. A family cash-flow app on Cloudflare Workers + D1
+(TypeScript monorepo). Read README.md first.
 
 ## Rules
 

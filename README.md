@@ -36,9 +36,12 @@ accessibility, privacy and guardrails (`.claude/settings.json`). Install them on
 (`claude plugin install <name>@benweese`), then start a new session.
 
 - **Commit blockers:** `.claude/privacy.json` blocks personal data and `.claude/guardrails.json` blocks
-  secrets before Claude commits. The repo's config names no denylist: the maintainer's denylist is never
-  committed and applies from their own setup; every clone runs the built-in checks. For commits made outside Claude,
-  run `install-privacy-git-hook` once, and again after each privacy plugin update.
+  secrets before Claude commits. The hooks read `.claude/privacy.json` from the folder the Claude session
+  started in. This repo's copy names no denylist, so a session started here runs the built-in checks only; to
+  add a denylist, start the session from a folder whose `privacy.json` names one
+  ([privacy plugin docs](https://github.com/benweese/claude-plugins/blob/main/plugins/privacy/README.md)).
+  For commits made outside Claude, run `install-privacy-git-hook` once, and again after each privacy plugin
+  update.
 - **`.claude/board.json` is local only** (gitignored): it's the maintainer's task-board config.
 - Accessibility rules: [docs/accessibility.md](docs/accessibility.md).
 
