@@ -8,10 +8,10 @@
 		"typecheck": "tsc --noEmit -p ."
 	},
 	"devDependencies": {
-		"@cloudflare/vitest-plugin": "1.9.0",
-		"wrangler": "4.166.0"
+		"@cloudflare/vitest-plugin": "1.9.2",
+		"wrangler": "4.168.0"
 	},
 	"dependencies": {
-		"hono": "4.13.21"
+		"hono": "4.13.22"
 	}
 }
